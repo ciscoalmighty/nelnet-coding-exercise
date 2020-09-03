@@ -1,6 +1,8 @@
 ﻿using NelnetProgrammingExercise.Models;
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace NelnetProgrammingExercise
 {
@@ -19,13 +21,15 @@ namespace NelnetProgrammingExercise
                 {
                     Name = "Dalinar",
                     PreferredClassification = PetClassification.Mammal,
-                    PreferredType = PetType.Snake
+                    PreferredPetType = PetType.Snake,
+                    PreferredPetSize = PetSize.Medium
                 },
                 new PersonModel()
                 {
                     Name = "Kaladin",
                     PreferredClassification = PetClassification.Bird,
-                    PreferredType = PetType.Goldfish
+                    PreferredPetType = PetType.Goldfish,
+                    PreferredPetSize = PetSize.ExtraSmall
                 }
             };
 
@@ -34,65 +38,82 @@ namespace NelnetProgrammingExercise
                 new PetModel()
                 {
                     Name = "Garfield",
+                    Weight = 20.00,
                     Classification = PetClassification.Mammal,
-                    Type = PetType.Cat
+                    Type = PetType.Cat,
                 },
                 new PetModel()
                 {
                     Name = "Odie",
+                    Weight = 15.00,
                     Classification = PetClassification.Mammal,
-                    Type = PetType.Dog
+                    Type = PetType.Dog,
                 },
                 new PetModel()
                 {
                     Name = "Peter Parker",
+                    Weight = 0.50,
                     Classification = PetClassification.Arachnid,
-                    Type = PetType.Spider
+                    Type = PetType.Spider,
                 },
                 new PetModel()
                 {
                     Name = "Kaa",
+                    Weight = 25.00,
                     Classification = PetClassification.Reptile,
-                    Type = PetType.Snake
+                    Type = PetType.Snake,
                 },
                 new PetModel()
                 {
                     Name = "Nemo",
+                    Weight = 0.50,
                     Classification = PetClassification.Fish,
-                    Type = PetType.Goldfish
+                    Type = PetType.Goldfish,
                 },
                 new PetModel()
                 {
                     Name = "Alpha",
+                    Weight = 0.10,
                     Classification = PetClassification.Fish,
-                    Type = PetType.Betta
+                    Type = PetType.Betta,
                 },
                 new PetModel()
                 {
                     Name = "Splinter",
+                    Weight = 0.50,
                     Classification = PetClassification.Mammal,
-                    Type = PetType.Rat
+                    Type = PetType.Rat,
                 },
                 new PetModel()
                 {
                     Name = "Coco",
+                    Weight = 06.00,
                     Classification = PetClassification.Bird,
-                    Type = PetType.Parrot
+                    Type = PetType.Parrot,
                 },
                 new PetModel()
                 {
                     Name = "Tweety",
+                    Weight = 0.05,
                     Classification = PetClassification.Bird,
-                    Type = PetType.Canary
+                    Type = PetType.Canary,
                 }
             };
+            
         }
-
+        private static void SetupPets()
+        {
+            foreach (PetModel pet in Pets)
+            {
+                pet.Size = WeightWork.weightWork(pet.Weight);
+               
+            }
+        }
         #endregion
 
         private static string IsGood(PersonModel person, PetModel pet)
         {
-            return person.PreferredClassification == pet.Classification || person.PreferredType == pet.Type
+            return person.PreferredClassification == pet.Classification || person.PreferredPetType == pet.Type
                 ? "good"
                 : "bad";
         }
