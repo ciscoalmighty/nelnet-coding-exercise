@@ -17,14 +17,14 @@ namespace NelnetProgrammingExercise.Work
                     Name = "Dalinar",
                     PreferredClassification = PetClassification.Mammal,
                     PreferredPetType = PetType.Snake,
-                    PreferredPetSize = PetSize.Medium
+                    PetSize = PetSize.Medium
                 },
                 new PersonModel()
                 {
                     Name = "Kaladin",
                     PreferredClassification = PetClassification.Bird,
                     PreferredPetType = PetType.Goldfish,
-                    PreferredPetSize = PetSize.ExtraSmall
+                    PetSize = PetSize.ExtraSmall
                 }
             };
 
