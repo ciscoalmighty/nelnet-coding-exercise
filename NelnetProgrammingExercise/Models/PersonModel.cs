@@ -15,5 +15,19 @@ namespace NelnetProgrammingExercise.Models
         public virtual PetType PreferredPetType { get; set; }
         public virtual PetSize PetSize { get; set; }
 
+        public PersonModel()
+        {
+        }
+
+        public PersonModel(string name, PetClassification petclass, PetType pettype, PetSize petsize)
+        {
+            Name = name;
+            PreferredClassification = petclass;
+            PreferredPetType = pettype;
+            PetSize = petsize;
+        }
+
+
+
     }
 }

@@ -8,9 +8,9 @@ namespace NelnetProgrammingExercise.Work
 {
     public class SetupWork
     {
-        public static void SetupObjects()
+        public static (List<PersonModel> People, List<PetModel> Pets) SetUpLists()
         {
-            Program.People = new PersonModel[]
+            var People = new List<PersonModel>
             {
                 new PersonModel()
                 {
@@ -29,8 +29,8 @@ namespace NelnetProgrammingExercise.Work
             };
 
 
-            Program.Pets = new PetModel[]
-            {
+            var Pets = new List<PetModel>
+                       {
                 new PetModel()
                 {
                     Name = "Garfield",
@@ -94,12 +94,15 @@ namespace NelnetProgrammingExercise.Work
                     Classification = PetClassification.Bird,
                     Type = PetType.Canary,
                 }
-             };
-            foreach (PetModel pet in Program.Pets)
+                        };
+            foreach (PetModel pet in Pets)
             {
                 pet.Size = WeightWork.weightWork(pet.Weight);
 
             }
+
+            return (People, Pets);
         }
     }
 }
+            
